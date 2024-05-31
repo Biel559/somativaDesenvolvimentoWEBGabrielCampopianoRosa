@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link que chama o bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Script que chama o bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link rel="stylesheet" href="/equipes.css">
+    <title>Equipes</title>
+</head>
+
+<body>
+   
+    <div class="main-container d-flex">
+        <div class="sidebar" id="side_nav">
+            <div class="header-box px-2 pt-3 pb-4 d-flex justify-content-between">
+                <h1 class="fs-4"><span class="bg-white text-dark rounded shadow px-2 me-2"><img src="/car-of-formula-1.png" alt="" width="45px"></span> <span
+                        class="text-white">F1 Car Store</span></h1>
+                <button class="btn d-md-none d-block close-btn px-1 py-0 text-white"><i class="fa-solid fa-bars"></i></button>
+            </div>
+
+            <ul class="list-unstyled px-2">
+                <li class=""><a href="/index.html" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-circle-info"></i>   Sobre a Loja</a></li>
+                <li class=""><a href="/vendas.html" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-dollar-sign"></i> Vendas</a></li>
+                <li class=""><a href="/estoque.html" class="text-decoration-none px-3 py-2 d-block"><span><i class="fa-solid fa-box-archive"></i> Dados Internos</span></a></li>
+                <li class=""><a href="/corredores.html" class="text-decoration-none px-3 py-2 d-block"><i class="fa-regular fa-id-card"></i> Corredores</a></li>
+                <li class="active"><a href="/equipes.html" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-people-group"></i> Equipes</a></li>
+            </ul>
+
+        </div>
+        <div class="content">
+            <nav class="navbar navbar-expand-md navbar-light bg-light">
+                <div class="container-fluid">
+                    <div class="d-flex justify-content-between d-md-none d-block">
+                     <button class="btn px-1 py-0 open-btn me-2"><i class="fa-solid fa-bars-staggered"></i></button>
+                        <a class="navbar-brand fs-4" href="#"><span class="bg-dark rounded px-2 py-0 text-white">F1 Car Store</span></a>
+                       
+                    </div>
+                    <button class="navbar-toggler p-0 border-0" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                      
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                        <ul class="navbar-nav mb-2 mb-lg-0">
+
+
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
+
+            <div class="dashboard-content px-3 pt-4">
+                <div class="margin-h1-principal">
+                    <h1 class="fs-2 fw-bold text-center">Equipes da Fórmula 1</h1>
+                </div>
+            </div>
+            <main>
+                <div class="gallery-container">
+                    <a href="ferrari.jpg" class="gallery-items">
+                        <img src="ferrari.jpg" alt="Ferrari">
+                        <div class="description">
+                            <h3>Ferrari</h3>
+                            <p>Primeiro Ano na F1: 1950</p>
+                            <p>Títulos de construtores na F1: 16</p>
+                            <p>Títulos de pilotos na F1: 15</p>
+                            <p>Grand Prix ganhos: 245</p>
+                            <p>País: Itália</p>
+                        </div>
+                    </a>
+                    <a href="mclaren.jpg" class="gallery-items">
+                        <img src="mclaren.jpg" alt="McLaren">
+                        <div class="description">
+                            <h3>McLaren</h3>
+                            <p>Primeiro Ano na F1: 1966</p>
+                            <p>Títulos de construtores na F1: 8</p>
+                            <p>Títulos de pilotos na F1: 12</p>
+                            <p>Grand Prix ganhos: 184</p>
+                            <p>País: Reino Unido</p>
+                        </div>
+                    </a>
+                    <a href="williams.jpg" class="gallery-items">
+                        <img src="williams.jpg" alt="Williams">
+                        <div class="description">
+                            <h3>Williams</h3>
+                            <p>Primeiro Ano na F1: 1977</p>
+                            <p>Títulos de construtores na F1: 9</p>
+                            <p>Títulos de pilotos na F1: 7</p>
+                            <p>Grand Prix ganhos: 114</p>
+                            <p>País: Reino Unido</p>
+                        </div>
+                    </a>
+                    <a href="mercedes.png" class="gallery-items">
+                        <img src="mercedes.png" alt="Mercedes">
+                        <div class="description">
+                            <h3>Mercedes</h3>
+                            <p>Primeiro Ano na F1: 1954</p>
+                            <p>Títulos de construtores na F1: 8</p>
+                            <p>Títulos de pilotos na F1: 9</p>
+                            <p>Grand Prix ganhos: 125</p>
+                            <p>País: Alemanha</p>
+                        </div>
+                    </a>
+                    <a href="redbull.jpg" class="gallery-items">
+                        <img src="redbull.jpg" alt="Red Bull">
+                        <div class="description">
+                            <h3>Red Bull</h3>
+                            <p>Primeiro Ano na F1: 2005</p>
+                            <p>Títulos de construtores na F1: 6</p>
+                            <p>Títulos de pilotos na F1: 7</p>
+                            <p>Grand Prix ganhos: 118</p>
+                            <p>País: Reino Unido/Áustria</p>
+                        </div>
+                    </a>
+                    <a href="astonmartin.png" class="gallery-items">
+                        <img src="astonmartin.png" alt="Aston Martin">
+                        <div class="description">
+                            <h3>Aston Martin</h3>
+                            <p>Primeiro Ano na F1: 1959</p>
+                            <p>Títulos de construtores na F1: 0</p>
+                            <p>Títulos de pilotos na F1: 0</p>
+                            <p>Grand Prix ganhos: 0</p>
+                            <p>País: Reino Unido</p>
+                        </div>
+                    </a>
+                    <a href="alpine.png" class="gallery-items">
+                        <img src="alpine.png" alt="Alpine">
+                        <div class="description">
+                            <h3>Alpine</h3>
+                            <p>Primeiro Ano na F1: 2021</p>
+                            <p>Títulos de construtores na F1: 0</p>
+                            <p>Títulos de pilotos na F1: 0</p>
+                            <p>Grand Prix ganhos: 1</p>
+                            <p>País: França</p>
+                        </div>
+                    </a>
+                    <a href="haas.jpg" class="gallery-items">
+                        <img src="haas.jpg" alt="Haas">
+                        <div class="description">
+                            <h3>Haas</h3>
+                            <p>Primeiro Ano na F1: 2016</p>
+                            <p>Títulos de construtores na F1: 0</p>
+                            <p>Títulos de pilotos na F1: 0</p>
+                            <p>Grand Prix ganhos: 0</p>
+                            <p>País: Estados Unidos</p>
+                        </div>
+                    </a>
+                    <a href="sauber.png" class="gallery-items">
+                        <img src="sauber.png" alt="Sauber">
+                        <div class="description">
+                            <h3>Sauber</h3>
+                            <p>Primeiro Ano na F1: 1993</p>
+                            <p>Títulos de construtores na F1: 0</p>
+                            <p>Títulos de pilotos na F1: 0</p>
+                            <p>Grand Prix ganhos: 0</p>
+                            <p>País: Suiça</p>
+                        </div>
+                    </a>
+                    <a href="rb.jpg" class="gallery-items">
+                        <img src="rb.jpg" alt="RB">
+                        <div class="description">
+                            <h3>RB</h3>
+                            <p>Primeiro Ano na F1: 2024</p>
+                            <p>Títulos de construtores na F1: 0</p>
+                            <p>Títulos de pilotos na F1: 0</p>
+                            <p>Grand Prix ganhos: 0</p>
+                            <p>País: Itália</p>
+                        </div>
+                    </a>
+                </div>        
+            </main>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <footer>
+                <div class="footerContainer">
+                    <div class="socialIcons">
+                        <a href="https://www.instagram.com/gabriel559559/"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://x.com/GabrielCRsten"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/@bielcampopiano"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                    <div class="footerNav">
+                        <ul><li><a href="">Empresa criada pela FIA (Federação Internacional do Automóvel) em 2024 para vender seus famosos carros de F1 para os fãs da modalidade que sempre sonharam em pilotar um carro de F1</a></li>
+   
+                        </ul>
+                    </div>
+                    <div class="contactInfo">
+                        <p><strong>Contato:</strong> contato@f1carstore.com</p>
+                        <p><strong>Endereço:</strong> Avenida do Automobilismo, 1234, São Paulo, SP, Brasil</p>
+                    </div>
+                </div>
+                <div class="footerBottom">
+                    <p>©2024 por Gabriel Campopiano Rosa.</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+   <script src="/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link que chama o bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Script que chama o bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+
+    <link rel="stylesheet" href="/estoque.css">
+    <title>Estoque</title>
+</head>
+
+<body>
+
+    <div class="main-container d-flex">
+        <div class="sidebar" id="side_nav">
+            <div class="header-box px-2 pt-3 pb-4 d-flex justify-content-between">
+                <h1 class="fs-4"><span class="bg-white text-dark rounded shadow px-2 me-2"><img
+                            src="/car-of-formula-1.png" alt="" width="45px"></span> <span class="text-white">F1 Car
+                        Store</span></h1>
+                <button class="btn d-md-none d-block close-btn px-1 py-0 text-white"><i
+                        class="fa-solid fa-bars"></i></button>
+            </div>
+
+            <ul class="list-unstyled px-2">
+                <li class=""><a href="/index.html" class="text-decoration-none px-3 py-2 d-block"><i
+                            class="fa-solid fa-circle-info"></i> Sobre a Loja</a></li>
+                <li class=""><a href="/vendas.html" class="text-decoration-none px-3 py-2 d-block"><i
+                            class="fa-solid fa-dollar-sign"></i> Vendas</a></li>
+                <li class="active"><a href="/estoque.html" class="text-decoration-none px-3 py-2 d-block"><span><i
+                                class="fa-solid fa-box-archive"></i> Dados Internos</span></a></li>
+                <li class=""><a href="/corredores.html" class="text-decoration-none px-3 py-2 d-block"><i
+                            class="fa-regular fa-id-card"></i> Corredores</a></li>
+                <li class=""><a href="/equipes.html" class="text-decoration-none px-3 py-2 d-block"><i
+                            class="fa-solid fa-people-group"></i> Equipes</a></li>
+            </ul>
+
+        </div>
+        <div class="content">
+            <nav class="navbar navbar-expand-md navbar-light bg-light">
+                <div class="container-fluid">
+                    <div class="d-flex justify-content-between d-md-none d-block">
+                        <button class="btn px-1 py-0 open-btn me-2"><i class="fa-solid fa-bars-staggered"></i></button>
+                        <a class="navbar-brand fs-4" href="#"><span class="bg-dark rounded px-2 py-0 text-white">F1 Car
+                                Store</span></a>
+
+                    </div>
+                    <button class="navbar-toggler p-0 border-0" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                        <ul class="navbar-nav mb-2 mb-lg-0">
+
+
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
+
+
+            <div class="dashboard-content px-3 pt-4">
+                <h1 class="fs-5">Potência dos motores dos carros nos testes de produção</h1>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="bar-chart"></canvas>
+            </div>
+            <div class="dashboard-content px-3 pt-4">
+                <h1 class="fs-5">Quantidade de Matéria Prima para a produção de carros em estoque</h1>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="bar-chart-materia-prima"></canvas>
+            </div>
+
+            <div class="dashboard-content px-3 pt-4">
+                <h1 class="fs-5">Produção dos carros ano 2024</h1>
+            </div>
+            <!-- Gráfico de Produção Atual e Meta -->
+            <div class="chart-container">
+                <canvas id="bar-chart-producao-atual"></canvas>
+            </div>
+
+            <div class="dashboard-content px-3 pt-4">
+                <h1 class="fs-5">Dados da produção anual</h1>
+            </div>
+            <!-- Gráfico de Produção Atual e Meta -->
+            <div class="chart-container">
+                <canvas id="pie-chart-producao-anual"></canvas>
+            </div>
+
+            <!-- Script do chart -->
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+            <script>
+                const ctx = document.getElementById('bar-chart');
+
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Ferrari', 'Red Bull', 'Mercedes', 'McLaren', 'Aston Martin', 'Williams', 'Alpine', 'Haas', 'Sauber', 'RB'],
+                        datasets: [{
+                            label: 'Potência dos Motores (HP)',
+                            data: [950, 1150, 850, 800, 775, 650, 700, 750, 700, 750],
+                            backgroundColor: [
+                                'rgba(255, 0, 0, 0.2)',  // Ferrari
+                                'rgba(0, 0, 139, 0.2)',  // Red Bull
+                                'rgba(192, 192, 192, 0.2)',  // Mercedes
+                                'rgba(255, 153, 0, 0.2)',  // McLaren
+                                'rgba(0, 53, 47, 0.2)',  // Aston Martin
+                                'rgba(0, 164, 224, 0.2)',  // Williams
+                                'rgba(0, 90, 169, 0.2)',  // Alpine
+                                'rgba(255, 0, 0, 0.2)',  // Haas
+                                'rgba(29, 115, 36, 0.2)',  // Sauber
+                                'rgba(0, 41, 63, 0.2)'  // RB (Alpha Tauri)
+                            ],
+                            borderColor: [
+                                'rgba(255, 0, 0, 1)',  // Ferrari
+                                'rgba(0, 0, 139, 1)',  // Red Bull
+                                'rgba(192, 192, 192, 1)',  // Mercedes
+                                'rgba(255, 153, 0, 1)',  // McLaren
+                                'rgba(0, 53, 47, 1)',  // Aston Martin
+                                'rgba(0, 164, 224, 1)',  // Williams
+                                'rgba(0, 90, 169, 1)',  // Alpine
+                                'rgba(255, 0, 0, 1)',  // Haas
+                                'rgba(29, 115, 36, 1)',  // Sauber
+                                'rgba(0, 41, 63, 1)'  // RB (Alpha Tauri)
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                                labels: {
+                                    font: {
+                                        size: 16 // Aumenta o tamanho do texto da legenda
+                                    }
+                                }
+                            },
+                        },
+                        scales: {
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Equipes',
+                                    font: {
+                                        size: 18 // Aumenta o tamanho do texto do título do eixo x
+                                    }
+                                },
+                                ticks: {
+                                    font: {
+                                        size: 14 // Aumenta o tamanho do texto dos rótulos do eixo x
+                                    }
+                                }
+                            },
+                            y: {
+                                title: {
+                                    display: true,
+                                    text: 'Potência dos Motores (HP)',
+                                    font: {
+                                        size: 18 // Aumenta o tamanho do texto do título do eixo y
+                                    }
+                                },
+                                ticks: {
+                                    font: {
+                                        size: 14 // Aumenta o tamanho do texto dos rótulos do eixo y
+                                    },
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    }
+                });
+            </script>
+
+            <script>
+                // Segundo gráfico: Quantidade de Matéria Prima
+                const ctx2 = document.getElementById('bar-chart-materia-prima');
+
+                new Chart(ctx2, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Fibra de Carbono (Baixo)', 'Alumínio (Suficiente)', 'Titânio (Crítico)', 'Aço (Suficiente)', 'Plástico (Baixo)', 'Borracha (Crítico)', 'Vidro (Suficiente)'],
+                        datasets: [
+                            {
+                                label: 'Quantidade em Estoque (toneladas)',
+                                data: [50, 75, 20, 100, 45, 25, 25],
+                                backgroundColor: [
+                                    'rgba(75, 0, 130, 0.2)',  // Fibra de Carbono
+                                    'rgba(192, 192, 192, 0.2)',  // Alumínio
+                                    'rgba(128, 128, 128, 0.2)',  // Titânio
+                                    'rgba(169, 169, 169, 0.2)',  // Aço
+                                    'rgba(0, 128, 0, 0.2)',  // Plástico
+                                    'rgba(255, 140, 0, 0.2)',  // Borracha
+                                    'rgba(70, 130, 180, 0.2)'  // Vidro
+                                ],
+                                borderColor: [
+                                    'rgba(75, 0, 130, 1)',  // Fibra de Carbono
+                                    'rgba(192, 192, 192, 1)',  // Alumínio
+                                    'rgba(128, 128, 128, 1)',  // Titânio
+                                    'rgba(169, 169, 169, 1)',  // Aço
+                                    'rgba(0, 128, 0, 1)',  // Plástico
+                                    'rgba(255, 140, 0, 1)',  // Borracha
+                                    'rgba(70, 130, 180, 1)'  // Vidro
+                                ],
+                                borderWidth: 1
+                            },
+                            {
+                                label: 'Quantidade Necessária para Produção Futura (toneladas)',
+                                data: [60, 70, 30, 90, 50, 40, 20],
+                                backgroundColor: [
+                                    'rgba(75, 0, 130, 0.6)',  // Fibra de Carbono
+                                    'rgba(192, 192, 192, 0.6)',  // Alumínio
+                                    'rgba(128, 128, 128, 0.6)',  // Titânio
+                                    'rgba(169, 169, 169, 0.6)',  // Aço
+                                    'rgba(0, 128, 0, 0.6)',  // Plástico
+                                    'rgba(255, 140, 0, 0.6)',  // Borracha
+                                    'rgba(70, 130, 180, 0.6)'  // Vidro
+                                ],
+                                borderColor: [
+                                    'rgba(75, 0, 130, 1)',  // Fibra de Carbono
+                                    'rgba(192, 192, 192, 1)',  // Alumínio
+                                    'rgba(128, 128, 128, 1)',  // Titânio
+                                    'rgba(169, 169, 169, 1)',  // Aço
+                                    'rgba(0, 128, 0, 1)',  // Plástico
+                                    'rgba(255, 140, 0, 1)',  // Borracha
+                                    'rgba(70, 130, 180, 1)'  // Vidro
+                                ],
+                                borderWidth: 1
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                                labels: {
+                                    font: {
+                                        size: 16 // Aumenta o tamanho do texto da legenda
+                                    }
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    afterBody: function (tooltipItems) {
+                                        const index = tooltipItems[0].dataIndex;
+                                        const stock = tooltipItems[0].dataset.data[index];
+                                        const required = tooltipItems[1].dataset.data[index];
+                                        let status = 'Suficiente';
+
+                                        if (stock < required * 0.5) {
+                                            status = 'Crítico';
+                                        } else if (stock < required) {
+                                            status = 'Baixo';
+                                        }
+
+                                        return `Status: ${status}`;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Matérias-Primas',
+                                    font: {
+                                        size: 18 // Aumenta o tamanho do texto do título do eixo x
+                                    }
+                                },
+                                ticks: {
+                                    font: {
+                                        size: 14 // Aumenta o tamanho do texto dos rótulos do eixo x
+                                    }
+                                }
+                            },
+                            y: {
+                                title: {
+                                    display: true,
+                                    text: 'Quantidade (toneladas)',
+                                    font: {
+                                        size: 18 // Aumenta o tamanho do texto do título do eixo y
+                                    }
+                                },
+                                ticks: {
+                                    font: {
+                                        size: 14 // Aumenta o tamanho do texto dos rótulos do eixo y
+                                    },
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    }
+                });
+            </script>
+
+            <script>
+                // Gráfico de Produção Atual
+                const ctx3 = document.getElementById('bar-chart-producao-atual');
+
+                new Chart(ctx3, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Red Bull', 'Ferrari', 'Mercedes', 'Haas', 'McLaren', 'Aston Martin', 'Alpine', 'Sauber', 'Williams', 'RB'],
+                        datasets: [{
+                            label: 'Produção Atual (Até Junho)',
+                            data: [26000, 30000, 23000, 5400, 17500, 9500, 8500, 4500, 9000, 4000],
+                            backgroundColor: [
+                                'rgba(255, 0, 0, 0.2)',  // Red Bull
+                                'rgba(255, 255, 0, 0.2)',  // Ferrari
+                                'rgba(192, 192, 192, 0.2)',  // Mercedes
+                                'rgba(255, 255, 255, 0.2)',  // Haas
+                                'rgba(255, 255, 255, 0.2)',  // McLaren
+                                'rgba(99, 176, 167, 0.2)',  // Aston Martin
+                                'rgba(253, 75, 199, 0.2)',  // Alpine
+                                'rgba(0, 0, 0, 0.2)',  // Sauber
+                                'rgba(4, 30, 66, 0.2)',  // Williams
+                                'rgba(255, 255, 255, 0.2)'  // RB
+                            ],
+                            borderColor: [
+                                'rgba(255, 0, 0, 1)',  // Red Bull
+                                'rgba(255, 255, 0, 1)',  // Ferrari
+                                'rgba(192, 192, 192, 1)',  // Mercedes
+                                'rgba(255, 255, 255, )',  // Haas
+                                'rgba(255, 153, 0, 1)',  // McLaren
+                                'rgba(0, 53, 47, 1)',  // Aston Martin
+                                'rgba(0, 90, 169, 1)',  // Alpine
+                                'rgba(29, 115, 36, 1)',  // Sauber
+                                'rgba(0, 164, 224, 1)',  // Williams
+                                'rgba(0, 41, 63, 1)'  // RB
+                            ],
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Meta de Produção Anual',
+                            data: [55000, 70000, 47500, 12000, 35000, 20000, 17500, 10000, 20000, 10000],
+                            backgroundColor: [
+                                'rgba(255, 0, 0, 0.6)',  // Red Bull
+                                'rgba(255, 255, 0, 0.6)',  // Ferrari
+                                'rgba(192, 192, 192, 0.6)',  // Mercedes
+                                'rgba(255, 255, 255, 0.6)',  // Haas
+                                'rgba(255, 255, 255, 0.6)',  // McLaren
+                                'rgba(99, 176, 167, 0.6)',  // Aston Martin
+                                'rgba(253, 75, 199, 0.6)',  // Alpine
+                                'rgba(0, 0, 0, 0.6)',  // Sauber
+                                'rgba(4, 30, 66, 0.6)',  // Williams
+                                'rgba(255, 255, 255, 0.6)'  // RB
+                            ],
+                            borderColor: [
+                                'rgba(255, 0, 0, 1)',  // Red Bull
+                                'rgba(255, 255, 0, 1)',  // Ferrari
+                                'rgba(192, 192, 192, 1)',  // Mercedes
+                                'rgba(255, 255, 255, 1)',  // Haas
+                                'rgba(255, 153, 0, 1)',  // McLaren
+                                'rgba(0, 53, 47, 1)',  // Aston Martin
+                                'rgba(0, 90, 169, 1)',  // Alpine
+                                'rgba(29, 115, 36, 1)',  // Sauber
+                                'rgba(0, 164, 224, 1)',  // Williams
+                                'rgba(0, 41, 63, 1)'  // RB
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                                labels: {
+                                    font: {
+                                        size: 16 // Aumenta o tamanho do texto da legenda
+                                    }
+                                }
+                            },
+                        },
+                        scales: {
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Equipes de F1',
+                                    font: {
+                                        size: 18 // Aumenta o tamanho do texto do título do eixo x
+                                    }
+                                },
+                                ticks: {
+                                    font: {
+                                        size: 14 // Aumenta o tamanho do texto dos rótulos do eixo x
+                                    }
+                                }
+                            },
+                            y: {
+                                title: {
+                                    display: true,
+                                    text: 'Quantidade Produzida',
+                                    font: {
+                                        size: 18 // Aumenta o tamanho do texto do título do eixo y
+                                    }
+                                },
+                                ticks: {
+                                    font: {
+                                        size: 14 // Aumenta o tamanho do texto dos rótulos do eixo y
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            </script>
+
+            <script>
+                // Dados da produção atual e meta anual
+                const producaoAtual = [26000, 30000, 23000, 5400, 17500, 9500, 8500, 4500, 9000, 4000];
+                const metaAnual = [55000, 70000, 47500, 12000, 35000, 20000, 17500, 10000, 20000, 10000];
+
+                // Calcular a produção total e a meta anual total
+                const producaoTotal = producaoAtual.reduce((total, producao) => total + producao, 0);
+                const metaAnualTotal = metaAnual.reduce((total, meta) => total + meta, 0);
+
+                // Calcular a porcentagem produzida e a porcentagem restante
+                const porcentagemProduzidaTotal = (producaoTotal / metaAnualTotal) * 100;
+                const porcentagemFaltaProduzirTotal = 100 - porcentagemProduzidaTotal;
+
+                // Configuração do gráfico de pizza
+                const ctx4 = document.getElementById('pie-chart-producao-anual').getContext('2d');
+
+                new Chart(ctx4, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Produzido', 'Falta Produzir'],
+                        datasets: [{
+                            label: 'Porcentagem da Meta Anual Produzida',
+                            data: [porcentagemProduzidaTotal, porcentagemFaltaProduzirTotal],
+                            backgroundColor: [
+                                'rgba(0, 0, 255, 0.6)',  // Produzido
+                                'rgba(255, 0, 0, 0.6)'   // Falta Produzir
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                                labels: {
+                                    font: {
+                                        size: 16 // Aumenta o tamanho do texto da legenda
+                                    }
+                                }
+                            },
+                        }
+                    }
+                });
+
+
+            </script>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <footer>
+                <div class="footerContainer">
+                    <div class="socialIcons">
+                        <a href="https://www.instagram.com/gabriel559559/"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://x.com/GabrielCRsten"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/@bielcampopiano"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                    <div class="footerNav">
+                        <ul>
+                            <li><a href="">Empresa criada pela FIA (Federação Internacional do Automóvel) em 2024 para
+                                    vender seus famosos carros de F1 para os fãs da modalidade que sempre sonharam em
+                                    pilotar um carro de F1</a></li>
+
+                        </ul>
+                    </div>
+                    <div class="contactInfo">
+                        <p><strong>Contato:</strong> contato@f1carstore.com</p>
+                        <p><strong>Endereço:</strong> Avenida do Automobilismo, 1234, São Paulo, SP, Brasil</p>
+                    </div>
+                </div>
+                <div class="footerBottom">
+                    <p>©2024 por Gabriel Campopiano Rosa.</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="/script.js"></script>
+</body>
+
+</html>

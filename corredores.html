@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link que chama o bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Script que chama o bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link rel="stylesheet" href="/corredores.css">
+    <title>Corredores</title>
+</head>
+
+<body>
+   
+    <div class="main-container d-flex">
+        <div class="sidebar" id="side_nav">
+            <div class="header-box px-2 pt-3 pb-4 d-flex justify-content-between">
+                <h1 class="fs-4"><span class="bg-white text-dark rounded shadow px-2 me-2"><img src="/car-of-formula-1.png" alt="" width="45px"></span> <span
+                        class="text-white">F1 Car Store</span></h1>
+                <button class="btn d-md-none d-block close-btn px-1 py-0 text-white"><i class="fa-solid fa-bars"></i></button>
+            </div>
+
+            <ul class="list-unstyled px-2">
+                <li class=""><a href="/index.html" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-circle-info"></i>   Sobre a Loja</a></li>
+                <li class=""><a href="/vendas.html" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-dollar-sign"></i> Vendas</a></li>
+                <li class=""><a href="/estoque.html" class="text-decoration-none px-3 py-2 d-block"><span><i class="fa-solid fa-box-archive"></i> Dados Internos</span></a></li>
+                <li class="active"><a href="/corredores.html" class="text-decoration-none px-3 py-2 d-block"><i class="fa-regular fa-id-card"></i> Corredores</a></li>
+                <li class=""><a href="/equipes.html" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-people-group"></i> Equipes</a></li>
+            </ul>
+
+        </div>
+        <div class="content">
+            <nav class="navbar navbar-expand-md navbar-light bg-light">
+                <div class="container-fluid">
+                    <div class="d-flex justify-content-between d-md-none d-block">
+                     <button class="btn px-1 py-0 open-btn me-2"><i class="fa-solid fa-bars-staggered"></i></button>
+                        <a class="navbar-brand fs-4" href="#"><span class="bg-dark rounded px-2 py-0 text-white">F1 Car Store</span></a>
+                       
+                    </div>
+                    <button class="navbar-toggler p-0 border-0" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                      
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                        <ul class="navbar-nav mb-2 mb-lg-0">
+
+
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
+
+            <div class="dashboard-content px-3 pt-4">
+                <div class="margin-h1-principal">
+                    <h1 class="fs-2 fw-bold text-center">Pilotos da Formula 1</h1>
+                </div>
+            </div>
+            <main>
+                <div class="gallery-container">
+                    <a href="hamilton.jpg" class="gallery-items">
+                        <img src="hamilton.jpg" alt="Lewis Hamilton">
+                        <div class="description">
+                            <h3>Lewis Hamilton</h3>
+                            <p>Equipe: Mercedes</p>
+                            <p>Idade: 39 anos</p>
+                            <p>Títulos da F1: 7</p>
+                            <p>Grand Prix ganhos: 103</p>
+                            <p>País: Reino Unido</p>
+                        </div>
+                    </a>
+                    <a href="russell.jpg" class="gallery-items">
+                        <img src="russell.jpg" alt="George Russel">
+                        <div class="description">
+                            <h3>George Russel</h3>
+                            <p>Equipe: Mercedes</p>
+                            <p>Idade: 26 anos</p>
+                            <p>Títulos da F1: 0</p>
+                            <p>Grand Prix ganhos: 1</p>
+                            <p>País: Reino Unido</p>
+                        </div>
+                    </a>
+                    <a href="leclerc.jpg" class="gallery-items">
+                        <img src="leclerc.jpg" alt="Charles Leclerc">
+                        <div class="description">
+                            <h3>Charles Leclerc</h3>
+                            <p>Equipe: Ferrari</p>
+                            <p>Idade: 26 anos</p>
+                            <p>Títulos da F1: 0</p>
+                            <p>Grand Prix ganhos: 6</p>
+                            <p>País: Mônaco</p>
+                        </div>
+                    </a>
+                    <a href="sainz.jpg" class="gallery-items">
+                        <img src="sainz.jpg" alt="Carlos Sainz">
+                        <div class="description">
+                            <h3>Carlos Sainz</h3>
+                            <p>Equipe: Ferrari</p>
+                            <p>Idade: 29 anos</p>
+                            <p>Títulos da F1: 0</p>
+                            <p>Grand Prix ganhos: 3</p>
+                            <p>País: Espanha</p>
+                        </div>
+                    </a>
+                    <a href="verstappen.jpg" class="gallery-items">
+                        <img src="verstappen.jpg" alt="Max Verstappen">
+                        <div class="description">
+                            <h3>Max Verstappen</h3>
+                            <p>Equipe: Red Bull</p>
+                            <p>Idade: 26 anos</p>
+                            <p>Títulos da F1: 3</p>
+                            <p>Grand Prix ganhos: 59</p>
+                            <p>País: Países Baixos (Holanda)</p>
+                        </div>
+                    </a>
+                    <a href="perez_1.jpg" class="gallery-items">
+                        <img src="perez_1.jpg" alt="Sergio Perez">
+                        <div class="description">
+                            <h3>Sergio Perez</h3>
+                            <p>Equipe: Red Bull</p>
+                            <p>Idade: 34 anos</p>
+                            <p>Títulos da F1: 0</p>
+                            <p>Grand Prix ganhos: 6</p>
+                            <p>País: México</p>
+                        </div>
+                    </a>
+                    <a href="norris.jpg" class="gallery-items">
+                        <img src="norris.jpg" alt="Lando Norris">
+                        <div class="description">
+                            <h3>Lando Norris</h3>
+                            <p>Equipe: McLaren</p>
+                            <p>Idade: 24 anos</p>
+                            <p>Títulos da F1: 0</p>
+                            <p>Grand Prix ganhos: 1</p>
+                            <p>País: Reino Unido</p>
+                        </div>
+                    </a>
+                    <a href="piastri.jpg" class="gallery-items">
+                        <img src="piastri.jpg" alt="Oscar Piastri">
+                        <div class="description">
+                            <h3>Oscar Piastri</h3>
+                            <p>Equipe: McLaren</p>
+                            <p>Idade: 23</p>
+                            <p>Títulos da F1: 0</p>
+                            <p>Grand Prix ganhos: 0</p>
+                            <p>País: Nova Zelândia</p>
+                        </div>
+                    </a>
+                    <a href="alonso.jpg" class="gallery-items">
+                        <img src="alonso.jpg" alt="Fernando Alonso">
+                        <div class="description">
+                            <h3>Fernando Alonso</h3>
+                            <p>Equipe: Aston Martin</p>
+                            <p>Idade: 42 anos</p>
+                            <p>Títulos da F1: 2</p>
+                            <p>Grand Prix ganhos: 32</p>
+                            <p>País: Espanha</p>
+                        </div>
+                    </a>
+                    <a href="stroll.jpg" class="gallery-items">
+                        <img src="stroll.jpg" alt="Lance Stroll">
+                        <div class="description">
+                            <h3>Lance Stroll</h3>
+                            <p>Equipe: Aston Martin</p>
+                            <p>Idade: 25 anos</p>
+                            <p>Títulos da F1: 0</p>
+                            <p>Grand Prix ganhos: 0</p>
+                            <p>País: Canadá</p>
+                        </div>
+                    </a>
+                    
+                    <a href="tsunoda.jpg" class="gallery-items">
+                        <img src="tsunoda.jpg" alt="Yuki Tsunoda">
+                        <div class="description">
+                            <h3>Yuki Tsunoda</h3>
+                            <p>Equipe: RB</p>
+                            <p>Idade: 24 anos</p>
+                            <p>Títulos da F1: 0</p>
+                            <p>Grand Prix ganhos: 0</p>
+                            <p>País: Japão</p>
+                        </div>
+                    </a>
+                    <a href="ricciardo.jpg" class="gallery-items">
+                        <img src="ricciardo.jpg" alt="Daniel Ricciardo">
+                        <div class="description">
+                            <h3>Daniel Ricciardo</h3>
+                            <p>Equipe: RB</p>
+                            <p>Idade: 34 anos</p>
+                            <p>Títulos da F1: 0</p>
+                            <p>Grand Prix ganhos: 8</p>
+                            <p>País: Austrália</p>
+                        </div>
+                    </a>
+                    <a href="hulkenberg.jpg" class="gallery-items">
+                        <img src="hulkenberg.jpg" alt="Nico Hulkenberg">
+                        <div class="description">
+                            <h3>Nico Hulkenberg</h3>
+                            <p>Equipe: Haas</p>
+                            <p>Idade: 36 anos</p>
+                            <p>Títulos da F1: 0</p>
+                            <p>Grand Prix ganhos: 0</p>
+                            <p>País: Alemanha</p>
+                        </div>
+                    </a>
+                    <a href="magnussen.jpg" class="gallery-items">
+                        <img src="magnussen.jpg" alt="Kevin Magnussen">
+                        <div class="description">
+                            <h3>Kevin Magnussen</h3>
+                            <p>Equipe: Haas</p>
+                            <p>Idade: 31 anos</p>
+                            <p>Títulos da F1: 0</p>
+                            <p>Grand Prix ganhos: 0</p>
+                            <p>País: Dinamarca</p>
+                        </div>
+                    </a>
+                    <a href="albon.jpg" class="gallery-items">
+                        <img src="albon.jpg" alt="Alexander Albon">
+                        <div class="description">
+                            <h3>Alexander Albon</h3>
+                            <p>Equipe: Williams</p>
+                            <p>Idade: 28 anos</p>
+                            <p>Títulos da F1: 0</p>
+                            <p>Grand Prix ganhos: 0</p>
+                            <p>País: Tailândia</p>
+                        </div>
+                    </a>
+                    <a href="sargeant.jpg" class="gallery-items">
+                        <img src="sargeant.jpg" alt="Logan Sargeant">
+                        <div class="description">
+                            <h3>Logan Sargeant</h3>
+                            <p>Equipe: Williams</p>
+                            <p>Idade: 23 anos</p>
+                            <p>Títulos da F1: 0</p>
+                            <p>Grand Prix ganhos: 0</p>
+                            <p>País: Estados Unidos</p>
+                        </div>
+                    </a>
+                    <a href="gasly.jpg" class="gallery-items">
+                        <img src="gasly.jpg" alt="Pierre Gasly">
+                        <div class="description">
+                            <h3>Pierre Gasly</h3>
+                            <p>Equipe: Alpine</p>
+                            <p>Idade: 28 anos</p>
+                            <p>Títulos da F1: 0</p>
+                            <p>Grand Prix ganhos: 1</p>
+                            <p>País: França</p>
+                        </div>
+                    </a>
+                    <a href="ocon.jpg" class="gallery-items">
+                        <img src="ocon.jpg" alt="Esteban Ocon">
+                        <div class="description">
+                            <h3>Esteban Ocon</h3>
+                            <p>Equipe: Alpine</p>
+                            <p>Idade: 27 anos</p>
+                            <p>Títulos da F1: 0</p>
+                            <p>Grand Prix ganhos: 1</p>
+                            <p>País: França</p>
+                        </div>
+                    </a>
+                    <a href="bottas.jpg" class="gallery-items">
+                        <img src="bottas.jpg" alt="Valtteri Bottas">
+                        <div class="description">
+                            <h3>Valtteri Bottas</h3>
+                            <p>Equipe: Sauber</p>
+                            <p>Idade: 34 anos</p>
+                            <p>Títulos da F1: 0</p>
+                            <p>Grand Prix ganhos: 10</p>
+                            <p>País: Finlândia</p>
+                        </div>
+                    </a>
+                    <a href="zhou.jpg" class="gallery-items">
+                        <img src="zhou.jpg" alt="Zhou Guanyu">
+                        <div class="description">
+                            <h3>Zhou Guanyu</h3>
+                            <p>Equipe: Sauber</p>
+                            <p>Idade: 25 anos</p>
+                            <p>Títulos da F1: 0</p>
+                            <p>Grand Prix ganhos: 0</p>
+                            <p>País: China</p>
+                        </div>
+                    </a>
+                </div>        
+            </main>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <footer>
+                <div class="footerContainer">
+                    <div class="socialIcons">
+                        <a href="https://www.instagram.com/gabriel559559/"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://x.com/GabrielCRsten"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/@bielcampopiano"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                    <div class="footerNav">
+                        <ul><li><a href="">Empresa criada pela FIA (Federação Internacional do Automóvel) em 2024 para vender seus famosos carros de F1 para os fãs da modalidade que sempre sonharam em pilotar um carro de F1</a></li>
+   
+                        </ul>
+                    </div>
+                    <div class="contactInfo">
+                        <p><strong>Contato:</strong> contato@f1carstore.com</p>
+                        <p><strong>Endereço:</strong> Avenida do Automobilismo, 1234, São Paulo, SP, Brasil</p>
+                    </div>
+                </div>
+                <div class="footerBottom">
+                    <p>©2024 por Gabriel Campopiano Rosa.</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+   <script src="/script.js"></script>
+</body>
+
+</html>

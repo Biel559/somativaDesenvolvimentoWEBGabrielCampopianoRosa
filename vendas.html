@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link que chama o bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Script que chama o bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+
+    <link rel="stylesheet" href="/vendas.css">
+    <title>Vendas</title>
+</head>
+
+<body>
+
+    <div class="main-container d-flex">
+        <div class="sidebar" id="side_nav">
+            <div class="header-box px-2 pt-3 pb-4 d-flex justify-content-between">
+                <h1 class="fs-4"><span class="bg-white text-dark rounded shadow px-2 me-2"><img
+                            src="/car-of-formula-1.png" alt="" width="45px"></span> <span class="text-white">F1 Car
+                        Store</span></h1>
+                <button class="btn d-md-none d-block close-btn px-1 py-0 text-white"><i
+                        class="fa-solid fa-bars"></i></button>
+            </div>
+
+            <ul class="list-unstyled px-2">
+                <li class=""><a href="/index.html" class="text-decoration-none px-3 py-2 d-block"><i
+                            class="fa-solid fa-circle-info"></i> Sobre a Loja</a></li>
+                <li class="active"><a href="/vendas.html" class="text-decoration-none px-3 py-2 d-block"><i
+                            class="fa-solid fa-dollar-sign"></i> Vendas</a></li>
+                <li class=""><a href="/estoque.html" class="text-decoration-none px-3 py-2 d-block"><span><i
+                                class="fa-solid fa-box-archive"></i> Dados Internos</span></a></li>
+                <li class=""><a href="/corredores.html" class="text-decoration-none px-3 py-2 d-block"><i
+                            class="fa-regular fa-id-card"></i> Corredores</a></li>
+                <li class=""><a href="/equipes.html" class="text-decoration-none px-3 py-2 d-block"><i
+                            class="fa-solid fa-people-group"></i> Equipes</a></li>
+            </ul>
+
+        </div>
+        <div class="content">
+            <nav class="navbar navbar-expand-md navbar-light bg-light">
+                <div class="container-fluid">
+                    <div class="d-flex justify-content-between d-md-none d-block">
+                        <button class="btn px-1 py-0 open-btn me-2"><i class="fa-solid fa-bars-staggered"></i></button>
+                        <a class="navbar-brand fs-4" href="#"><span class="bg-dark rounded px-2 py-0 text-white">F1 Car
+                                Store</span></a>
+
+                    </div>
+                    <button class="navbar-toggler p-0 border-0" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                        <ul class="navbar-nav mb-2 mb-lg-0">
+
+
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
+
+
+            <div class="dashboard-content px-3 pt-4">
+                <h1 class="fs-5"> Dashboard de vendas diárias por equipe da F1 no mês de junho de 2024</h1>
+
+            </div>
+            <br><br><br>
+            <div class="chart-container">
+                <canvas id="line-chart"></canvas>
+            </div>
+                <!-- Script do chart -->
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+            <script>
+                const ctx = document.getElementById('line-chart');
+
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+                        datasets: [{
+                            label: 'Red Bull',
+                            data:[30, 50, 45, 65, 60, 80, 75, 95, 90, 110, 105, 125, 120, 140, 135, 155, 150, 170, 165, 185, 180, 200, 195, 215, 210, 230, 225, 245, 240, 260],
+                            borderColor: 'rgba(135, 206, 235, 1)', // Azul Claro  
+                            borderColor: 'rgba(0, 0, 139, 1)',
+                            backgroundColor: 'rgba(255, 0, 0, 1)', // Vermelho
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Ferrari',
+                            data:[40, 60, 55, 75, 70, 90, 85, 105, 100, 120, 115, 135, 130, 150, 145, 165, 160, 180, 175, 195, 190, 210, 205, 225, 220, 240, 235, 255, 250, 270], 
+                            borderColor: 'rgba(255, 0, 0, 1)',
+                            backgroundColor: 'rgba(255, 255, 0, 1)', // Amarelo
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Mercedes',
+                            data: [50, 70, 65, 90, 85, 100, 95, 110, 105, 130, 125, 140, 135, 150, 145, 160, 155, 170, 165, 180, 175, 190, 185, 200, 195, 210, 205, 220, 215, 230],
+                            borderColor: 'rgba(135, 206, 235, 1)', // Azul Claro
+                            backgroundColor: 'rgba(192, 192, 192, 1)', // Prata
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Haas',
+                            data: [6, 12, 9, 15, 12, 18, 15, 21, 18, 24, 21, 27, 24, 30, 27, 33, 30, 36, 33, 39, 36, 42, 39, 45, 42, 48, 45, 51, 48, 54],
+                            borderColor: 'rgba(255, 0, 0, 1)', // Branco
+                            backgroundColor: 'rgba(255, 255, 255, 1)', // Marrom
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'McLaren',
+                            data: [20, 35, 30, 45, 40, 55, 50, 65, 60, 75, 70, 85, 80, 95, 90, 105, 100, 115, 110, 125, 120, 135, 130, 145, 140, 155, 150, 165, 160, 175],
+                            borderColor: 'rgba(255, 153, 0, 1)', // Branco
+                            backgroundColor: 'rgba(255, 255, 255, 1)', // Laranja
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Aston Martin',
+                            data: [15, 25, 20, 30, 25, 35, 30, 40, 35, 45, 40, 50, 45, 55, 50, 60, 55, 65, 60, 70, 65, 75, 70, 80, 75, 85, 80, 90, 85, 95],
+                            borderColor: 'rgba(0, 53, 47, 1)', // Branco
+                            backgroundColor: 'rgba(99, 176, 167, 1)', // Verde Escuro
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Alpine',
+                            data: [8, 15, 12, 20, 17, 25, 22, 30, 27, 35, 32, 40, 37, 45, 42, 50, 47, 55, 52, 60, 57, 65, 62, 70, 67, 75, 72, 80, 77, 85],
+                            borderColor: 'rgba(0, 90, 169, 1)', // Branco
+                            backgroundColor: 'rgba(253, 75, 199, 1)', // Verde Água
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Sauber',
+                            data: [5, 10, 8, 13, 11, 15, 13, 18, 16, 20, 18, 23, 21, 25, 23, 28, 26, 30, 28, 33, 31, 35, 33, 38, 36, 40, 38, 43, 41, 45],
+                            borderColor: 'rgba(29, 115, 36, 1)', // Branco
+                            backgroundColor: 'rgba(0, 0, 0, 1)', // Roxo Escuro
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Williams',
+                            data: [10, 20, 15, 25, 20, 30, 25, 35, 30, 40, 35, 45, 40, 50, 45, 55, 50, 60, 55, 65, 60, 70, 65, 75, 70, 80, 75, 85, 80, 90],
+                            borderColor: 'rgba(0, 164, 224, 1)', // Branco
+                            backgroundColor: 'rgba(4, 30, 66, 1)', // Azul Escuro
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'RB',
+                            data: [4, 8, 6, 10, 8, 13, 11, 15, 13, 18, 16, 20, 18, 23, 21, 25, 23, 28, 26, 30, 28, 33, 31, 35, 33, 38, 36, 40, 38, 43],
+                            borderColor: 'rgba(0, 41, 63, 1)', // Azul Escuro
+                            backgroundColor: 'rgba(255, 255, 255, 1)', // Vermelho
+                            borderWidth: 1
+                        }]
+                    }
+
+
+                    ,
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                                labels: {
+                                    font: {
+                                        size: 16 // Aumenta o tamanho do texto da legenda
+                                    }
+                                }
+                            },
+                        },
+                        scales: {
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Dias de Junho de 2024',
+                                    font: {
+                                        size: 18 // Aumenta o tamanho do texto do título do eixo x
+                                    }
+                                },
+                                ticks: {
+                                    font: {
+                                        size: 14 // Aumenta o tamanho do texto dos rótulos do eixo x
+                                    }
+                                }
+                            },
+                            y: {
+                                title: {
+                                    display: true,
+                                    text: 'Quantidade de Vendas',
+                                    font: {
+                                        size: 18 // Aumenta o tamanho do texto do título do eixo y
+                                    }
+                                },
+                                ticks: {
+                                    font: {
+                                        size: 14 // Aumenta o tamanho do texto dos rótulos do eixo y
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            </script>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <footer>
+                <div class="footerContainer">
+                    <div class="socialIcons">
+                        <a href="https://www.instagram.com/gabriel559559/"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://x.com/GabrielCRsten"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/@bielcampopiano"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                    <div class="footerNav">
+                        <ul>
+                            <li><a href="">Empresa criada pela FIA (Federação Internacional do Automóvel) em 2024 para
+                                    vender seus famosos carros de F1 para os fãs da modalidade que sempre sonharam em
+                                    pilotar um carro de F1</a></li>
+
+                        </ul>
+                    </div>
+                    <div class="contactInfo">
+                        <p><strong>Contato:</strong> contato@f1carstore.com</p>
+                        <p><strong>Endereço:</strong> Avenida do Automobilismo, 1234, São Paulo, SP, Brasil</p>
+                    </div>
+                </div>
+                <div class="footerBottom">
+                    <p>©2024 por Gabriel Campopiano Rosa.</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="/script.js"></script>
+</body>
+
+</html>
